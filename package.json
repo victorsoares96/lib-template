@@ -1,0 +1,84 @@
+{
+  "name": "lib-template",
+  "version": "0.0.1",
+  "description": "An example library",
+  "main": "dist/cjs/index.js",
+  "bin": {
+    "say-my-name": "bin/say-my-name"
+  },
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "prepare": "husky install",
+    "clean": "rimraf dist/",
+    "copy-files:cjs": "copyfiles -u 1 src/**/*.json dist/cjs",
+    "copy-files:esm": "copyfiles -u 1 src/**/*.json dist/esm",
+    "build:cjs": "tsc -p config/tsconfig.cjs.json --skipLibCheck",
+    "build:esm": "tsc -p config/tsconfig.esm.json --skipLibCheck",
+    "build:types": "tsc -p config/tsconfig.types.json --skipLibCheck",
+    "prettier:format": "prettier \"*.{js,json,yml,yaml,md}\" \"src/**/*\" --write",
+    "lint:fix": "eslint --color --ext .ts \"src/**/*.+(ts)\" --fix",
+    "test": "jest --no-cache --runInBand --passWithNoTests",
+    "test:coverage": "jest --coverage --no-cache --runInBand --passWithNoTests",
+    "type-check": "tsc --pretty --noEmit --skipLibCheck --esModuleInterop --resolveJsonModule",
+    "package": "npm run build && npm pack",
+    "prebuild": "npm run clean",
+    "build": "npm run build:cjs && npm run build:esm && npm run build:types",
+    "postbuild": "npm run copy-files:cjs && npm run copy-files:esm",
+    "prerelease": "npm run lint:fix && npm run type-check && npm run test:coverage",
+    "release": "npm run build && npm publish",
+    "release-local": "npm run build && npm link && echo [FINISH]: Run \"npm link react-intl-universal-reporter\" to link the package to your project"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "keywords": [
+    "library",
+    "template"
+  ],
+  "repository": "https://github.com/victorsoares96/lib-template",
+  "author": "Victor Soares <vitorsoares96@hotmail.com> (https://github.com/victorsoares96)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/victorsoares96/lib-template/issues"
+  },
+  "homepage": "https://github.com/victorsoares96/lib-template#readme",
+  "peerDependencies": {},
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^28.1.3",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "commitizen": "^4.2.4",
+    "commitizen-emoji": "1.0.5",
+    "copyfiles": "^2.4.1",
+    "eslint": "8.17.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.1",
+    "jest": "^28.1.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.4.0",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^27.0.5",
+    "typescript": "4.4.4"
+  },
+  "engines": {
+    "yarn": ">= 1.22.0",
+    "node": ">=16.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/commitizen-emoji"
+    },
+    "commitizenEmoji": {
+      "conventionalFormat": true
+    }
+  }
+}
