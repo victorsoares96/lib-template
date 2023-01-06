@@ -15,10 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js 16.x
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: "16.x"
+          node-version: "18.x"
 
       - name: Install dependencies
         run: yarn --frozen-lockfile
@@ -35,7 +35,7 @@ jobs:
       - name: Upload Coverage
         uses: codecov/codecov-action@v3
         with:
-          token: ${{secrets.CODECOV_TOKEN}} # not required for public repos
+          # token: ${{secrets.CODECOV_TOKEN}} # not required for public repos
           directory: coverage
           fail_ci_if_error: true
 
@@ -48,10 +48,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js 16.x
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: "16.x"
+          node-version: "18.x"
 
       - name: Install dependencies
         run: yarn --frozen-lockfile
