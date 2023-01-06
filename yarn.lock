@@ -1427,27 +1427,7 @@ commitizen-emoji@1.0.5:
     wrap-ansi "^3.0.0"
     yup "^0.32.9"
 
-commitizen@4.2.6:
-  version "4.2.6"
-  resolved "https://registry.yarnpkg.com/commitizen/-/commitizen-4.2.6.tgz#c35af39e1cb5fc2de88511df802da4344dc3ca80"
-  integrity sha512-RyTM+EiD9GO01DJUn9MRRAet3XUHGfoUZoksLfr+1ym1Xt2q5EYJs9Fg2BtKSb5Mo53i0BtMBmWMHQXVlZ/L9w==
-  dependencies:
-    cachedir "2.3.0"
-    cz-conventional-changelog "3.3.0"
-    dedent "0.7.0"
-    detect-indent "6.1.0"
-    find-node-modules "^2.1.2"
-    find-root "1.1.0"
-    fs-extra "9.1.0"
-    glob "7.2.3"
-    inquirer "8.2.4"
-    is-utf8 "^0.2.1"
-    lodash "4.17.21"
-    minimist "1.2.6"
-    strip-bom "4.0.0"
-    strip-json-comments "3.1.1"
-
-commitizen@^4.0.3:
+commitizen@4.2.6, commitizen@^4.0.3:
   version "4.2.6"
   resolved "https://registry.yarnpkg.com/commitizen/-/commitizen-4.2.6.tgz#c35af39e1cb5fc2de88511df802da4344dc3ca80"
   integrity sha512-RyTM+EiD9GO01DJUn9MRRAet3XUHGfoUZoksLfr+1ym1Xt2q5EYJs9Fg2BtKSb5Mo53i0BtMBmWMHQXVlZ/L9w==
@@ -1782,10 +1762,10 @@ eslint-config-airbnb-typescript@17.0.0:
   dependencies:
     eslint-config-airbnb-base "^15.0.0"
 
-eslint-config-prettier@8.5.0:
-  version "8.5.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.5.0.tgz#5a81680ec934beca02c7b1a61cf8ca34b66feab1"
-  integrity sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==
+eslint-config-prettier@8.6.0:
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.6.0.tgz#dec1d29ab728f4fa63061774e1672ac4e363d207"
+  integrity sha512-bAF0eLpLVqP5oEVUFKpMA+NnRFICwn9X8B5jrR9FcqnYBuPbqWEjTEspPWMj5ye6czoSLDweCzSo3Ko7gGrZaA==
 
 eslint-import-resolver-node@^0.3.6:
   version "0.3.6"
