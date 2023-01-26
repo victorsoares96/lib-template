@@ -1,4 +1,4 @@
-import { sayMyName } from './sayMyName';
+import { sayMyName } from '@/sayMyName';
 
 (() => {
   const name = process.argv[2];

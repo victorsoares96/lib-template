@@ -1,4 +1,4 @@
-import { sayMyName } from './sayMyName';
+import { sayMyName } from '@/sayMyName';
 
 export * from './types';
 
