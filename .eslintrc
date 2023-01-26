@@ -10,10 +10,14 @@
     "sourceType": "module",
     "ecmaVersion": "latest"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "prettier"
-  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  },
+  "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
     "airbnb-base",
     "airbnb-typescript/base",
@@ -23,6 +27,15 @@
   "rules": {
     "prettier/prettier": "error",
     "import/prefer-default-export": "off",
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js", "src/scripts/**/*.ts"]}]
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["**/*.test.ts", "**/*.spec.ts"]
+      }
+    ],
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      { "prefer": "type-imports" }
+    ]
   }
 }
