@@ -1,5 +1,8 @@
 import { sayMyName } from './sayMyName';
 
 (() => {
-  sayMyName({ name: 'John Doe' });
+  const name = process.argv[2];
+
+  if (!name) console.log('USE: npx say-my-name [NAME]');
+  else console.log(sayMyName({ name: 'John Doe' }));
 })();

@@ -2,20 +2,15 @@
   "name": "lib-template",
   "version": "1.2.0",
   "description": "An example library",
-  "main": "dist/cjs/index.js",
+  "main": "dist/index.js",
   "bin": {
     "say-my-name": "bin/say-my-name"
   },
-  "module": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
     "prepare": "husky install",
-    "clean": "rimraf dist/",
-    "copy-files:cjs": "copyfiles -u 1 src/**/*.json dist/cjs",
-    "copy-files:esm": "copyfiles -u 1 src/**/*.json dist/esm",
-    "build:cjs": "tsc -p config/tsconfig.cjs.json --skipLibCheck",
-    "build:esm": "tsc -p config/tsconfig.esm.json --skipLibCheck",
-    "build:types": "tsc -p config/tsconfig.types.json --skipLibCheck",
+    "copy-json-files-to-dist": "copyfiles -u 1 src/**/*.json dist/",
     "style:format": "prettier \"*.{js,json,yml,yaml,md}\" \"src/**/*\" --write",
     "lint": "eslint --color --ext .ts \"src/**/*.+(ts)\"",
     "lint:fix": "eslint --color --ext .ts \"src/**/*.+(ts)\" --fix",
@@ -23,12 +18,9 @@
     "test:coverage": "jest --coverage --no-cache --runInBand --passWithNoTests",
     "type-check": "tsc --pretty --noEmit --skipLibCheck --esModuleInterop --resolveJsonModule",
     "package": "npm run build && npm pack",
-    "prebuild": "npm run clean",
-    "build": "npm run build:cjs && npm run build:esm && npm run build:types",
-    "postbuild": "npm run copy-files:cjs && npm run copy-files:esm",
-    "prerelease": "npm run lint:fix && npm run type-check && npm run test:coverage",
+    "build": "tsup",
     "release": "npm run build && npm publish",
-    "release-local": "npm run build && npm link && echo [FINISH]: Run \"npm link react-intl-universal-reporter\" to link the package to your project"
+    "release-local": "npm run build && npm link && echo [FINISH]: Run \"npm link lib-template\" to link the package to your project"
   },
   "publishConfig": {
     "access": "public"
@@ -67,13 +59,13 @@
     "jest": "29.3.1",
     "lint-staged": "13.1.0",
     "prettier": "2.8.1",
-    "rimraf": "3.0.2",
     "ts-jest": "29.0.3",
+    "tsup": "6.5.0",
     "typescript": "4.9.4"
   },
   "engines": {
     "yarn": ">= 1.22.0",
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "config": {
     "commitizen": {
